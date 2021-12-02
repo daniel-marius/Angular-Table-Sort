@@ -21,17 +21,46 @@ export class SortDirective {
     // Get In WHich Order list should be sorted by default it should be set to desc on element attribute
     const order = elem.getAttribute('data-order');
 
-    // Get The Property Type specially set [data-type=date] if it is date field
-    const type = elem.getAttribute('data-type');
-
     // Get The Property Name from Element Attribute
     const property = elem.getAttribute('data-name');
 
+    // switch (order) {
+    //   case '1':
+    //     this.appSort = s.sortTable(
+    //       this.appSort,
+    //       property.toString().toLowerCase(),
+    //       parseInt(order)
+    //     );
+    //     elem.setAttribute('data-order', '-1');
+    //   case '-1':
+    //     this.appSort = s.sortTable(
+    //       this.appSort,
+    //       property.toString().toLowerCase(),
+    //       parseInt(order)
+    //     );
+    //     elem.setAttribute('data-order', '1');
+    //   default:
+    //     this.appSort = s.sortTable(
+    //       this.appSort,
+    //       property.toString().toLowerCase(),
+    //       parseInt('-1')
+    //     );
+    //     elem.setAttribute('data-order', '-1');
+    // }
+
     if (order === '1') {
-      this.appSort = s.sortTable(this.appSort, property, parseInt(order), type);
+      this.appSort = s.sortTable(
+        this.appSort,
+        property.toString().toLowerCase(),
+        parseInt(order)
+      );
       elem.setAttribute('data-order', '-1');
     } else {
-      this.appSort = s.sortTable(this.appSort, property, parseInt(order), type);
+      this.appSort = s.sortTable(
+        this.appSort,
+        property.toString().toLowerCase(),
+        parseInt(order)
+      );
       elem.setAttribute('data-order', '1');
     }
   }
