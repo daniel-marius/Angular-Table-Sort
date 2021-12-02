@@ -1,6 +1,7 @@
 import { Directive, Input, ElementRef, HostListener } from '@angular/core';
 
 import { Sort } from '../utils/sort';
+import { SortDirection } from '../utils/sort.enum';
 import { IEmployee } from '../utils/employee.model';
 
 @Directive({
@@ -48,20 +49,20 @@ export class SortDirective {
     //     elem.setAttribute('data-order', '-1');
     // }
 
-    if (order === '1') {
+    if (order === SortDirection.ASCENDING) {
       this.appSort = s.sortTable(
         this.appSort,
         property.toString().toLowerCase(),
         parseInt(order)
       );
-      elem.setAttribute('data-order', '-1');
+      elem.setAttribute('data-order', SortDirection.DESCENDING);
     } else {
       this.appSort = s.sortTable(
         this.appSort,
         property.toString().toLowerCase(),
         parseInt(order)
       );
-      elem.setAttribute('data-order', '1');
+      elem.setAttribute('data-order', SortDirection.ASCENDING);
     }
   }
 }

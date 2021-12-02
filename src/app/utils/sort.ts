@@ -10,7 +10,7 @@ export class Sort {
   }
 
   private sortArray(array: any, property: any, direction: number): any {
-    direction = direction || 1;
+    // direction = direction || 1;
     array.sort((a: any, b: any) => {
       let comparison: number = 0;
 
@@ -55,7 +55,6 @@ export class Sort {
   }
 
   private compareValues(a: any, b: any, direction: number): number {
-    // return (a < b ? -1 : 1) * (result ? 1 : -1);
     return a > b ? 1 * direction : -1 * direction;
   }
 }

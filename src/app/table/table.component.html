@@ -1,22 +1,51 @@
+<form [formGroup]="formGroup">
+  <input
+    type="text"
+    class="form-control"
+    name="searchString"
+    placeholder="Type to search..."
+    formControlName="filter"
+  />
+</form>
 <table class="table table-striped border mt-1">
   <thead>
     <tr>
-      <th scope="col" [appSort]="dataEmployee" data-order="-1" data-name="id">
-        Id
+      <th
+        scope="col"
+        [appSort]="dataEmployee$ | async"
+        data-order="-1"
+        data-name="id"
+      >
+        #
       </th>
-      <th scope="col" [appSort]="dataEmployee" data-order="-1" data-name="name">
+      <th
+        scope="col"
+        [appSort]="dataEmployee$ | async"
+        data-order="-1"
+        data-name="name"
+      >
         Name
       </th>
-      <th scope="col" [appSort]="dataEmployee" data-order="-1" data-name="age">
+      <th
+        scope="col"
+        [appSort]="dataEmployee$ | async"
+        data-order="-1"
+        data-name="age"
+      >
         Age
       </th>
-      <th scope="col" [appSort]="dataEmployee" data-order="-1" data-name="dob">
+      <th
+        scope="col"
+        [appSort]="dataEmployee$ | async"
+        data-order="-1"
+        data-name="dob"
+      >
         Date Of Birth
       </th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of dataEmployee">
+    <tr *ngFor="let data of dataEmployeeFiltered$ | async">
       <td>{{ data.id }}</td>
       <td>{{ data.name }}</td>
       <td>{{ data.age }}</td>
