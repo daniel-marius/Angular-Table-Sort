@@ -22,16 +22,16 @@ export class SortDirective {
     const order = elem.getAttribute('data-order');
 
     // Get The Property Type specially set [data-type=date] if it is date field
-    const type = elem.getAttribute("data-type");
+    const type = elem.getAttribute('data-type');
 
     // Get The Property Name from Element Attribute
     const property = elem.getAttribute('data-name');
 
     if (order === '1') {
-      this.appSort = s.sortTable(this.appSort, property, parseInt(order));
+      this.appSort = s.sortTable(this.appSort, property, parseInt(order), type);
       elem.setAttribute('data-order', '-1');
     } else {
-      this.appSort = s.sortTable(this.appSort, property, order);
+      this.appSort = s.sortTable(this.appSort, property, parseInt(order), type);
       elem.setAttribute('data-order', '1');
     }
   }
